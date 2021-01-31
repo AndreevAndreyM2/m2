@@ -1,30 +1,66 @@
 <?php
+
 namespace MR\Grid\Model;
 
+use MR\Grid\Api\Data\JobInterface;
 use Magento\Framework\Model\AbstractModel;
+use MR\Grid\Model\ResourceModel\Grid as ResourceModel;
 
-class Grid extends \Magento\Framework\Model\AbstractModel
+
+class Grid extends AbstractModel implements JobInterface
 {
-    const CACHE_TAG = 'mr_grid_jobs';
 
-    protected $_cacheTag = 'mr_grid_jobs';
-
-    protected $_eventPrefix = 'mr_grid_jobs';
-
-    protected function _construct()
+    public function _construct()
     {
-        $this->_init('MR\Grid\Model\ResourceModel\Grid');
+        $this->_init(ResourceModel::class);
     }
 
-    public function getIdentities()
+
+    public function getId()
     {
-        return [self::CACHE_TAG . '_' . $this->getId()];
+        return $this->_getData(self::ID);
     }
 
-    public function getDefaultValues()
-    {
-        $values = [];
 
-        return $values;
+    public function setId($id)
+    {
+        $this->setData(self::ID, $id);
     }
+
+
+    public function getName()
+    {
+        return $this->_getData(self::NAME);
+    }
+
+    public function setName($name)
+    {
+        $this->setData(self::NAME, $name);
+    }
+
+
+    public function getDescription()
+    {
+        return $this->_getData(self::DESCRIPTION);
+    }
+
+
+    public function setDescription($description)
+    {
+        $this->setData(self::DESCRIPTION, $description);
+    }
+
+
+    public function getShortDescription()
+    {
+        return $this->_getData(self::SHORT_DESCRIPTION);
+    }
+
+
+    public function setShortDescription($short_description)
+    {
+        $this->setData(self::SHORT_DESCRIPTION, $short_description);
+    }
+
+
 }

@@ -1,6 +1,11 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 
+    <preference for="MR\Grid\Api\Data\JobInterface"
+                type="MR\Grid\Model\Grid"/>
+
+    <preference for="MR\Grid\Api\Repository\JobRepositoryInterface"
+                type="MR\Grid\Repository\JobRepository"/>
 
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>

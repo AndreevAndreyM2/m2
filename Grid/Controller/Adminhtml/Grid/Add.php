@@ -1,13 +1,13 @@
 <?php
 
 namespace MR\Grid\Controller\Adminhtml\Grid;
-
-use Magento\Backend\App\Action;
-
-class Add extends Action
+use Magento\Framework\Controller\ResultFactory;
+class Add extends \Magento\Backend\App\Action
 {
     public function execute()
     {
-        $this->_forward('edit');
+        $resultPage = $this->resultPageFactory->create(ResultFactory::TYPE_PAGE);
+        $resultPage->getConfig()->getTitle()->prepend(__('Add New Job'));
+        return $resultPage;
     }
 }

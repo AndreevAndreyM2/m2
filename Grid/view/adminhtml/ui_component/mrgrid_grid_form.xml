@@ -22,7 +22,7 @@
 
     <dataSource name="mrgrid_grid_form_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
-            <argument name="class" xsi:type="string">MR\Grid\Model\Jobs\DataProvider</argument>
+            <argument name="class" xsi:type="string">MR\Grid\DataProvider\JobProvider</argument>
             <argument name="name" xsi:type="string">mrgrid_grid_form_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">id</argument>
             <argument name="requestFieldName" xsi:type="string">id</argument>
