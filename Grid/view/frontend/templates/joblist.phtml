@@ -1,0 +1,15 @@
+<table>
+    <tr>
+        <th class="grid-name">Name</th>
+        <th class="grid-short_description">Short Description</th>
+    </tr>
+    <?php
+    foreach ($block->getGridCollection() as $key=>$grid){
+        echo '<tr>
+                    <td>'.$grid->getName().'</td>
+                    <td>'.$grid->getShortDescription().'</td>
+                  </tr>';
+    }
+    ?>
+</table>
+

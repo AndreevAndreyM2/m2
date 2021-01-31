@@ -1,0 +1,6 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="MR_Grid::careers" title="Grid" module="MR_Grid" sortOrder="50" resource="MR_Grid::careers" />
+        <add id="MR_Grid::add_row" title="Grid" module="MR_Grid" sortOrder="20" parent="MR_Grid::careers" action="mrgrid/grid" resource="MR_Grid::add_row"/>
+    </menu>
+</config>
