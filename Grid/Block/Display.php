@@ -14,7 +14,6 @@ class Display extends \Magento\Framework\View\Element\Template
         parent::__construct($context);
     }
 
-
     public function getGridCollection()
     {
         $post = $this->_gridFactory->create();

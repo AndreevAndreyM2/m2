@@ -19,9 +19,7 @@ use Magento\Framework\Exception\NoSuchEntityException;
 
 class JobRepository implements JobRepositoryInterface
 {
-
     private $resource;
-
 
     private $modelFactory;
 

@@ -6,7 +6,7 @@ use Magento\Ui\DataProvider\ModifierPoolDataProvider;
 use Magento\Framework\App\Request\DataPersistorInterface;
 use MR\Grid\Api\Data\JobInterface;
 use MR\Grid\Model\ResourceModel\Job\Collection;
-use ALevel\QuickOrder\Model\ResourceModel\Grid\CollectionFactory;
+use MR\Grid\Model\ResourceModel\Grid\CollectionFactory;
 
 
 class JobProvider extends ModifierPoolDataProvider

@@ -18,7 +18,7 @@ interface JobRepositoryInterface
 
     public function getList(SearchCriteriaInterface $searchCriteria): SearchResultsInterface;
 
-    public function save(JobInterface $job): JobRepositoryInterface;
+    public function save(JobInterface $job): JobInterface;
 
     public function delete(JobInterface $job): JobRepositoryInterface;
 

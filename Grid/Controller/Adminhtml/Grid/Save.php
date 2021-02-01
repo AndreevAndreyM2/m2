@@ -28,13 +28,13 @@ class Save extends Action
     public function __construct(
         Context $context,
         JobRepositoryInterface $repository,
-        JobInterfaceFactory $statusFactory,
+        JobInterfaceFactory $modelFactory,
         DataPersistorInterface $dataPersistor,
         LoggerInterface $logger
     )
     {
         $this->repository = $repository;
-        $this->modelFactory = $statusFactory;
+        $this->modelFactory = $modelFactory;
         $this->dataPersistor = $dataPersistor;
         $this->logger = $logger;
 
@@ -45,24 +45,16 @@ class Save extends Action
     public function execute()
     {
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
-        $data = $this->getRequest()->getPostValue();
-
+        $data = $this->getRequest()->getPostValue()['job'];
         if ($data) {
             $model = $this->modelFactory->create();
 
             $id = $this->getRequest()->getParam('id');
-            if ($id) {
-                try {
-                    $model = $this->repository->getById($id);
-                } catch (LocalizedException $e) {
-                    $this->messageManager->addErrorMessage(__('This job no longer exists.'));
-                    $resultRedirect->setPath('*/*/');
-                }
-            }
 
-            $model->setDescription($data['description']);
-            $model->setName($data['name']);
-            $model->setShortDescription($data['short_description']);
+
+            $model->setDescription(strip_tags($data['description']));
+            $model->setName(strip_tags($data['name']));
+            $model->setShortDescription(strip_tags($data['short_description']));
 
             try {
                 $this->repository->save($model);
